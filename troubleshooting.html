@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafePulse - Setup & Troubleshooting</title>
+    <meta name="description" content="Setup, permissions, and troubleshooting guide for SafePulse. What to enable, how to approve contacts, and how to fix common issues.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: #e63946; text-decoration: none; }
+        .logo span { color: #1a1a2e; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: #1a1a2e; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #e63946; }
+
+        .page-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            text-align: center;
+        }
+        .page-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .page-hero h1 span { color: #e63946; }
+        .page-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        section.block { margin-bottom: 4rem; }
+        section.block h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+            border-left: 4px solid #e63946;
+            padding-left: 1rem;
+        }
+        section.block p { margin-bottom: 1rem; color: #333; }
+        section.block ol, section.block ul { margin: 1rem 0 1rem 1.5rem; }
+        section.block li { margin-bottom: 0.5rem; color: #333; }
+
+        .callout {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            color: #5d4037;
+        }
+        .callout-critical {
+            background: #fde8ea;
+            border-left-color: #e63946;
+            color: #491217;
+        }
+        .callout strong { color: #1a1a2e; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 2rem;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+        td:first-child { font-weight: 600; white-space: nowrap; }
+
+        .faq-item {
+            background: #f8f9fa;
+            padding: 1.25rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .faq-item h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        .faq-item p { margin: 0; color: #555; }
+
+        .sms-preview {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.92rem;
+            white-space: pre-line;
+            color: #1a1a2e;
+            margin: 1rem 0;
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+        }
+        footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+        footer .footer-links {
+            display: flex; justify-content: center; gap: 2rem;
+            margin-bottom: 1.5rem; flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 1.8rem; }
+            nav ul { display: none; }
+            main { padding: 3rem 1.5rem; }
+            section.block h2 { font-size: 1.4rem; }
+            table, thead, tbody, th, td, tr { display: block; }
+            thead { display: none; }
+            tr { margin-bottom: 1rem; border: 1px solid #e0e0e0; border-radius: 8px; padding: 0.5rem; }
+            td { border-bottom: none; padding: 0.4rem 0; }
+            td:first-child { font-size: 1rem; color: #e63946; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Safe<span>Pulse</span></a>
+        <ul>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#download">Download</a></li>
+            <li><a href="troubleshooting.html">Setup &amp; Help</a></li>
+            <li><a href="privacypolicy.html">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-hero">
+        <h1>Setup &amp; <span>Troubleshooting</span></h1>
+        <p>Welcome! This guide walks you through installing and configuring SafePulse so it can actually save your life. Takes about 5 minutes.</p>
+    </header>
+
+    <main>
+
+        <section class="block">
+            <h2>What SafePulse does</h2>
+            <p>SafePulse asks you to "check in" on a schedule you choose. If you don't check in by the deadline, it automatically sends an emergency SMS to people you trust (and optionally calls them). You can also press the red <strong>SOS</strong> button at any time to send the alert immediately.</p>
+        </section>
+
+        <section class="block">
+            <h2>After installing</h2>
+            <ol>
+                <li>Tap <strong>Get Started</strong>.</li>
+                <li>Select <strong>30 minutes</strong> for initial testing &mdash; you can change this later in Settings.</li>
+                <li>Tap <strong>Allow Access</strong> to give SafePulse access to your contacts.</li>
+                <li>Pick the contacts you want to alert (up to 10).</li>
+                <li>On the alert methods step, choose <strong>SMS Contact</strong>, and <strong>Make Call</strong> if you want the app to also phone the first person on your list.</li>
+                <li>Tap the <strong>Settings</strong> menu (top-right, next to the 3 dots) and turn on:
+                    <ul>
+                        <li><strong>SMS</strong> &mdash; sends the emergency text automatically.</li>
+                        <li><strong>Auto-Call</strong> &mdash; automatically dials your first contact.</li>
+                        <li>When prompted with "Phone permission needed," tap <strong>Allow</strong>.</li>
+                    </ul>
+                </li>
+                <li>Go back into <strong>Contacts</strong> and tap the <strong>green check mark</strong> next to each person to approve them. <strong>Only approved contacts get alerts.</strong></li>
+            </ol>
+        </section>
+
+        <section class="block">
+            <h2>Approve your contacts &mdash; this is critical</h2>
+            <div class="callout callout-critical">
+                <p><strong>Adding a contact is not enough.</strong> Each person must also be <strong>approved</strong> before SafePulse will send them an alert.</p>
+                <p style="margin-top:0.75rem; margin-bottom:0;">Open the <strong>Contacts</strong> screen and tap the green <strong>&#10004;</strong> next to each person. Only approved contacts will receive emergency alerts.</p>
+            </div>
+        </section>
+
+        <section class="block">
+            <h2>Critical permissions &mdash; do not skip</h2>
+            <p>SafePulse needs several Android permissions to work. <strong>If you skip any of these, the app may fail silently when you need it most.</strong> Grant them all when prompted during onboarding, then <strong>manually verify every one</strong> under <em>Phone Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions</em>.</p>
+            <p>On newer Android versions (12 and up), several of these permissions are <strong>denied by default</strong> even though the app requests them &mdash; you must toggle them on yourself.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Permission</th>
+                        <th>Why it&rsquo;s needed</th>
+                        <th>Where to enable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SMS</td>
+                        <td>To send the emergency text without you needing to tap Send.</td>
+                        <td>Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions &rarr; SMS &rarr; <strong>Allow</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Contacts</td>
+                        <td>To pick emergency contacts from your address book.</td>
+                        <td>Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions &rarr; Contacts &rarr; <strong>Allow</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Location (Precise)</td>
+                        <td>To include your GPS location in the emergency SMS.</td>
+                        <td>Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions &rarr; Location &rarr; <strong>Allow all the time</strong> (or at minimum &ldquo;Allow only while using the app&rdquo;), and choose <strong>Precise</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td>Notifications</td>
+                        <td>To remind you before your check-in deadline.</td>
+                        <td>Settings &rarr; Apps &rarr; SafePulse &rarr; Notifications &rarr; <strong>Allow</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Alarms &amp; reminders &#9888;</td>
+                        <td><strong>Critical</strong> &mdash; without this, the app cannot fire the missed-check-in alert at the exact deadline.</td>
+                        <td>Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions &rarr; Additional permissions &rarr; <strong>Alarms &amp; reminders</strong> (or Settings &rarr; Apps &rarr; Special app access &rarr; Alarms &amp; reminders).</td>
+                    </tr>
+                    <tr>
+                        <td>Full screen intent &#9888;</td>
+                        <td>Required for the 5-minute warning and emergency alert to break through your lock screen.</td>
+                        <td>Settings &rarr; Apps &rarr; SafePulse &rarr; <strong>Appear on top</strong> / <strong>Display over other apps</strong>, OR Settings &rarr; Apps &rarr; SafePulse &rarr; <strong>Full screen intent</strong> &mdash; varies by phone.</td>
+                    </tr>
+                    <tr>
+                        <td>Battery &mdash; Unrestricted &#9888;</td>
+                        <td>Without this, Android will kill the app after reboot or during idle and skip the alert entirely.</td>
+                        <td>Settings &rarr; Apps &rarr; SafePulse &rarr; Battery &rarr; <strong>Unrestricted</strong> (NOT &ldquo;Optimized&rdquo;).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="block">
+            <h2>Samsung, Xiaomi, OnePlus, Huawei, Oppo, Vivo users</h2>
+            <p>Your phone has an extra layer of aggressive battery management on top of standard Android. You must <strong>also</strong>:</p>
+            <ul>
+                <li>Add SafePulse to the <strong>&ldquo;Never sleeping apps&rdquo;</strong> / <strong>&ldquo;Auto-launch&rdquo;</strong> list. Samsung: <em>Settings &rarr; Device care &rarr; Battery &rarr; Background usage limits &rarr; Never sleeping apps</em>.</li>
+                <li>Disable any <strong>&ldquo;Adaptive battery&rdquo;</strong> learning for SafePulse.</li>
+                <li>If your phone has <strong>&ldquo;Protected apps&rdquo;</strong> (Huawei) or <strong>&ldquo;Autostart management&rdquo;</strong> (Xiaomi/Oppo/Vivo), enable it for SafePulse.</li>
+            </ul>
+        </section>
+
+        <section class="block">
+            <h2>Set your name</h2>
+            <p>In <strong>Settings</strong>, tap the profile row at the top and enter your name. Your name appears in the SMS so contacts know who needs help.</p>
+        </section>
+
+        <section class="block">
+            <h2>Test it before you rely on it</h2>
+            <div class="callout">
+                <p><strong>Don&rsquo;t wait until a real emergency to find out something isn&rsquo;t configured right.</strong></p>
+            </div>
+            <ol>
+                <li>Make sure at least one emergency contact is added <strong>and approved</strong> (green &#10004;).</li>
+                <li>Tell that contact: &ldquo;I&rsquo;m about to send you a test SafePulse alert &mdash; please confirm you got it.&rdquo;</li>
+                <li>Tap the red <strong>SOS</strong> button on the main screen and confirm.</li>
+                <li>Within a few seconds you should see:
+                    <ul>
+                        <li>A toast message saying &ldquo;Sending SOS to 1 contact&hellip;&rdquo;</li>
+                        <li>Your contact receives an SMS with the SOS message and your location link.</li>
+                    </ul>
+                </li>
+                <li>Ask your contact to confirm they received it.</li>
+            </ol>
+            <p>If nothing visible happened when you pressed SOS, something is misconfigured &mdash; check the Common Issues section below.</p>
+        </section>
+
+        <section class="block">
+            <h2>What your contacts will see</h2>
+            <p>When you miss a check-in, your approved contacts get a text like this:</p>
+            <div class="sms-preview">&#128680; SAFEPULSE EMERGENCY ALERT &#128680;
+
+[Your Name] has NOT checked in and may need help.
+
+Last location: https://maps.google.com/?q=42.5,-83.2
+
+&#9888; CALL THEM NOW. If no answer, call 911.</div>
+            <p>When you press SOS:</p>
+            <div class="sms-preview">&#128680; SOS &mdash; SAFEPULSE EMERGENCY &#128680;
+
+[Your Name] triggered an SOS and needs IMMEDIATE HELP.
+
+Location: https://maps.google.com/?q=42.5,-83.2
+
+&#9888; CALL [Your Name] NOW. If unreachable, call 911.</div>
+        </section>
+
+        <section class="block">
+            <h2>Tell your contacts to expect this</h2>
+            <p>Before relying on the app, tell each of your emergency contacts:</p>
+            <ol>
+                <li>You added them to a safety check-in app called SafePulse.</li>
+                <li>They&rsquo;ll get an automated text if you don&rsquo;t respond on time, or if you press SOS.</li>
+                <li>Save your number to their contacts so the alert shows your name (not &ldquo;Unknown&rdquo;).</li>
+                <li>Add you as a <strong>Priority contact</strong> in their phone (or allow your messages through Do Not Disturb) so the alert isn&rsquo;t muted at night.</li>
+                <li><strong>Always treat the alert as real</strong> &mdash; call you immediately, then 911 if you don&rsquo;t pick up.</li>
+            </ol>
+        </section>
+
+        <section class="block">
+            <h2>Common issues</h2>
+
+            <div class="faq-item">
+                <h3>&ldquo;No approved contacts&rdquo; toast when pressing SOS</h3>
+                <p>Open Contacts and tap the green &#10004; next to each one. Only approved contacts get alerts.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Pressed SOS and nothing visible happened</h3>
+                <p>The SMS permission is almost always the cause. Go to <em>Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions &rarr; SMS</em> and set to <strong>Allow</strong>. Also confirm the in-app <strong>SMS toggle</strong> is ON (open the app&rsquo;s Settings screen).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>SMS doesn&rsquo;t arrive at your contact</h3>
+                <p>Check that the recipient&rsquo;s phone number includes country code (the app should normalize this automatically). Check your SMS permission. Look for a Toast message (&ldquo;SMS sent to&hellip;&rdquo; or an error code) right after pressing SOS.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Missed-check-in alert never fires</h3>
+                <p>The <strong>Alarms &amp; reminders</strong> permission is missing. Grant it under <em>Settings &rarr; Apps &rarr; SafePulse &rarr; Permissions &rarr; Additional permissions</em>.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Alarm didn&rsquo;t fire after I rebooted my phone</h3>
+                <p>Two common causes on Android 12+:
+                    (1) battery optimization killed the app after reboot &mdash; set Battery to <strong>Unrestricted</strong>;
+                    (2) on Samsung/Xiaomi/OnePlus/Huawei/Oppo/Vivo, the phone blocked the app from auto-starting &mdash; add SafePulse to your phone&rsquo;s &ldquo;Never sleeping apps&rdquo; / &ldquo;Auto-launch&rdquo; / &ldquo;Protected apps&rdquo; list.
+                    After fixing, <strong>reboot once more</strong> and verify by pressing SOS.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>5-min warning / emergency alert doesn&rsquo;t pop up over the lock screen</h3>
+                <p>Grant the <strong>Full screen intent</strong> permission (<em>Settings &rarr; Apps &rarr; SafePulse &rarr; Full screen intent</em>, or on some phones &ldquo;Display over other apps&rdquo;).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Location doesn&rsquo;t appear in the SMS</h3>
+                <p>Toggle &ldquo;Include Location&rdquo; off and back on in Settings. When the dialog appears, choose <strong>Allow precise location</strong>.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>App keeps showing &ldquo;Get Started&rdquo;</h3>
+                <p>Walk through to the end and tap <strong>Enable &amp; Start</strong> on the last step.</p>
+            </div>
+        </section>
+
+        <section class="block">
+            <h2>Privacy</h2>
+            <p>SafePulse stores everything <strong>on your device only</strong>. Nothing is sent to a server. The only network traffic the app generates is the SMS itself, sent through your phone&rsquo;s normal carrier connection.</p>
+            <p><a href="privacypolicy.html" style="color: #e63946; font-weight: 600;">Read the full Privacy Policy &rarr;</a></p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#download">Download</a>
+            <a href="troubleshooting.html">Setup &amp; Help</a>
+            <a href="privacypolicy.html">Privacy Policy</a>
+        </div>
+        <p>&copy; 2026 Frank Nowicki. All rights reserved. SafePulse&trade; is a trademark of Frank Nowicki.</p>
+    </footer>
+
+</body>
+</html>

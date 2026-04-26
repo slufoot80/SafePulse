@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafePulse - Personal Safety App</title>
-    <meta name="description" content="SafePulse keeps you safe with SOS alerts, safety circles, SafeZones, wellness tracking, and more. Your personal safety companion for Android.">
+    <meta name="description" content="SafePulse keeps you safe with SOS alerts, safety circles, automatic check-ins, loud bystander alarm, wellness tracking, and more. Your personal safety companion for Android.">
     <style>
         * {
             margin: 0;
@@ -411,6 +411,16 @@
             font-size: 1.1rem;
         }
 
+        .store-btn-coming-soon {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .store-btn-coming-soon:hover {
+            transform: none;
+            background: #1a1a2e;
+        }
+
         /* Privacy */
         .privacy-banner {
             padding: 3rem 2rem;
@@ -509,6 +519,7 @@
             <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#who-its-for">Who It's For</a></li>
             <li><a href="#download">Download</a></li>
+            <li><a href="troubleshooting.html">Setup &amp; Help</a></li>
             <li><a href="privacypolicy.html">Privacy</a></li>
         </ul>
     </nav>
@@ -543,14 +554,14 @@
                 <p>Create trusted groups of family and friends who receive your check-in status and alerts. Stay connected to the people who care.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon icon-green">&#128205;</div>
-                <h3>SafeZones</h3>
-                <p>Set location-based safe areas. Get alerts when entering or leaving zones, and let your circle know you've arrived safely.</p>
+                <div class="feature-icon icon-green">&#128267;</div>
+                <h3>Battery Warning Alerts</h3>
+                <p>If your phone's battery gets dangerously low, SafePulse automatically warns your circle so they know you may go offline soon.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon icon-purple">&#128272;</div>
-                <h3>SafePhrase Duress Detection</h3>
-                <p>Set a secret phrase that silently triggers an emergency alert. If you're forced to say you're fine, SafePulse knows the difference.</p>
+                <div class="feature-icon icon-purple">&#128226;</div>
+                <h3>Loud Alarm &amp; Auto-Call</h3>
+                <p>When you trigger an emergency, SafePulse sounds a loud bystander alarm and can automatically dial your first emergency contact &mdash; no extra taps needed.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon icon-orange">&#128218;</div>
@@ -605,7 +616,7 @@
             <div class="use-case">
                 <div class="use-case-icon">&#127956;</div>
                 <h3>Hikers &amp; Adventurers</h3>
-                <p>SafeZones and SOS alerts keep you protected on trails and in remote locations.</p>
+                <p>Automatic check-ins and SOS alerts keep you protected on trails and in remote locations.</p>
             </div>
             <div class="use-case">
                 <div class="use-case-icon">&#127891;</div>
@@ -640,7 +651,7 @@
     <!-- Download -->
     <section class="download" id="download">
         <h2>Download SafePulse Today</h2>
-        <p>Available on Google Play and Amazon Appstore. Your safety is just one tap away.</p>
+        <p>Available on Google Play, Amazon Appstore, and coming soon to Samsung Galaxy Store. Your safety is just one tap away.</p>
         <div class="store-buttons">
             <a href="https://play.google.com/store/apps/details?id=app.safepulse" class="store-btn" target="_blank" rel="noopener">
                 <span class="store-icon">&#9654;</span>
@@ -653,10 +664,18 @@
                 <span class="store-icon">&#128293;</span>
                 <div class="store-text">
                     <small>AVAILABLE ON</small>
-                    <span>Amazon Appstore</span>
+                    <span>Amazon (PulseGuard)</span>
+                </div>
+            </a>
+            <a href="#" class="store-btn store-btn-coming-soon" aria-disabled="true" onclick="event.preventDefault();">
+                <span class="store-icon">&#11088;</span>
+                <div class="store-text">
+                    <small>COMING SOON</small>
+                    <span>Galaxy Store</span>
                 </div>
             </a>
         </div>
+        <p style="margin-top: 2rem; font-size: 0.95rem;"><a href="troubleshooting.html" style="color: #e63946; font-weight: 600;">Need help installing or setting up? &rarr; Setup &amp; Troubleshooting Guide</a></p>
     </section>
 
     <!-- Privacy -->
@@ -672,6 +691,7 @@
             <a href="#features">Features</a>
             <a href="#how-it-works">How It Works</a>
             <a href="#download">Download</a>
+            <a href="troubleshooting.html">Setup &amp; Help</a>
             <a href="privacypolicy.html">Privacy Policy</a>
         </div>
         <p>&copy; 2026 Frank Nowicki. All rights reserved. SafePulse&trade; is a trademark of Frank Nowicki.</p>
