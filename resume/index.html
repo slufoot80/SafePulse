@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frank Nowicki — Resume</title>
+<meta name="description" content="Frank Nowicki — Systems Engineer & Cross-Platform App Developer. 20+ years Unix/Linux, AWS, automation, and mobile/cloud development.">
+<style>
+  :root{
+    --accent:#1f3a5f;
+    --accent-light:#2c5282;
+    --ink:#1a1a1a;
+    --muted:#555;
+    --rule:#d6dde6;
+    --bg:#f4f6f9;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    font-size:16px;
+  }
+  .page{
+    max-width:820px;
+    margin:32px auto;
+    background:#fff;
+    padding:48px 56px;
+    box-shadow:0 2px 18px rgba(0,0,0,.08);
+    border-radius:6px;
+  }
+  header{text-align:center;border-bottom:3px solid var(--accent);padding-bottom:18px;margin-bottom:8px;}
+  header h1{
+    margin:0;
+    font-size:2.1rem;
+    letter-spacing:.5px;
+    color:var(--accent);
+    font-weight:700;
+  }
+  .contact{margin-top:8px;color:var(--muted);font-size:.92rem;line-height:1.7;}
+  .contact a{color:var(--accent-light);text-decoration:none;}
+  .contact a:hover{text-decoration:underline;}
+  .sep{color:var(--rule);margin:0 6px;}
+  section{margin-top:22px;}
+  h2{
+    font-size:1.02rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--accent);
+    border-bottom:1.5px solid var(--rule);
+    padding-bottom:5px;
+    margin:0 0 12px;
+  }
+  .summary{margin:0;color:#222;}
+  .skill-row{margin:0 0 9px;}
+  .skill-row .cat{color:var(--accent);font-weight:700;}
+  .job{margin-bottom:16px;}
+  .job-head{display:flex;justify-content:space-between;flex-wrap:wrap;align-items:baseline;gap:4px;}
+  .job-title{font-weight:700;font-size:1.02rem;}
+  .job-meta{color:var(--muted);font-size:.88rem;font-style:italic;white-space:nowrap;}
+  .job-sub{color:var(--muted);font-size:.9rem;margin:1px 0 7px;}
+  .lede{margin:2px 0 8px;}
+  ul{margin:6px 0 0;padding-left:20px;}
+  li{margin-bottom:5px;}
+  .subhead{font-weight:700;margin:10px 0 2px;color:#333;}
+  .edu-block{margin-bottom:11px;}
+  .edu-block .title{font-weight:700;}
+  .edu-block .detail{color:var(--muted);font-size:.9rem;font-style:italic;}
+  .projects li{margin-bottom:4px;}
+  footer{margin-top:28px;text-align:center;color:#999;font-size:.78rem;}
+  .actions{position:fixed;top:18px;right:18px;display:flex;gap:8px;}
+  .btn{
+    background:var(--accent);color:#fff;border:none;text-decoration:none;
+    padding:9px 16px;border-radius:5px;cursor:pointer;
+    font-size:.85rem;box-shadow:0 2px 8px rgba(0,0,0,.15);
+    display:inline-block;
+  }
+  .btn:hover{background:var(--accent-light);}
+  @media (max-width:600px){
+    .page{padding:28px 22px;margin:0;border-radius:0;}
+    header h1{font-size:1.7rem;}
+    .job-meta{white-space:normal;}
+  }
+  @media print{
+    body{background:#fff;font-size:11pt;}
+    .page{box-shadow:none;margin:0;max-width:none;padding:0;border-radius:0;}
+    .actions{display:none;}
+    section{margin-top:14px;}
+    a{color:var(--ink);text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+<div class="actions">
+  <a class="btn" href="Frank_Nowicki_Resume.pdf" download>Download PDF</a>
+  <button class="btn" onclick="window.print()">Print</button>
+</div>
+<main class="page">
+
+  <header>
+    <h1>Frank Nowicki</h1>
+    <div class="contact">
+      Detroit, MI (EST) <span class="sep">·</span> Open to Remote<br>
+      <a href="tel:+15868720488">586-872-0488</a>
+      <span class="sep">·</span>
+      <a href="mailto:frank.nowicki@gmail.com">frank.nowicki@gmail.com</a>
+      <span class="sep">·</span>
+      <a href="https://github.com/slufoot80" target="_blank" rel="noopener">github.com/slufoot80</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">Systems engineer and developer with 20+ years across Unix/Linux administration, AWS cloud architecture, automation, and — most recently — full-cycle mobile and cloud application development. Proven track record automating infrastructure, eliminating operational toil, and migrating mission-critical systems with zero data loss. AWS Certified Solutions Architect and Oracle Certified Professional who now ships and publishes cross-platform apps end to end: design, build, cloud backend, and multi-store release. Experienced working remotely and async across distributed systems — SSH-driven administration, cloud infrastructure, and remote build pipelines spanning Windows, Linux, and macOS.</p>
+  </section>
+
+  <section>
+    <h2>Core Skills</h2>
+    <p class="skill-row"><span class="cat">Cloud &amp; DevOps:</span> AWS (EC2, S3, RDS, Lambda, IAM, Backup), Cloudflare Workers &amp; Pages, Microsoft Azure, OpenStack, Serverless, Docker, Kubernetes, Jenkins, Ansible, Puppet, Chef, Terraform-style IaC</p>
+    <p class="skill-row"><span class="cat">Systems &amp; OS:</span> Red Hat Enterprise Linux, Solaris 9/10/11, Ubuntu, CentOS, SUSE, VMware ESXi; SELinux, firewall config, performance tuning, system monitoring</p>
+    <p class="skill-row"><span class="cat">Storage &amp; Networking:</span> NetApp, EMC (Celerra/Isilon), Sun, HP, SGI; NFS, DNS, FTP/SFTP; Cisco routing/switching (OSPF, EIGRP, STP, EtherChannel), CCENT/CCNA-level networking</p>
+    <p class="skill-row"><span class="cat">Databases:</span> Oracle 12c (DBA), PostgreSQL, SQL, database design, backup &amp; recovery, Flashback technologies</p>
+    <p class="skill-row"><span class="cat">Programming &amp; Scripting:</span> Python (Django/Flask, Pandas), Bash, Perl, PowerShell, C/C++, SQL/XML; Kotlin, Jetpack Compose, Swift/SwiftUI</p>
+    <p class="skill-row"><span class="cat">Mobile &amp; App Development:</span> Android (Kotlin/Compose/Room/MVVM), iOS (Swift/SwiftUI, Xcode), React Native; multi-store publishing (Google Play, Apple App Store, Amazon Appstore, Huawei AppGallery, Samsung Galaxy Store), signed AAB builds, build flavors, app signing, closed-testing cohorts, Twilio/SMS integration</p>
+    <p class="skill-row"><span class="cat">Build &amp; Release Automation:</span> Google Play Console &amp; Developer API (automated uploads via Gradle Play Publisher), Huawei AppGallery Connect, EAS Build, Workload Identity Federation (to satisfy service-account-key org policies); cross-platform dev environments spanning Windows 11, WSL/Ubuntu, and remote macOS (MacinCloud, VS Code Remote-SSH, Homebrew, Node/npm, Git)</p>
+    <p class="skill-row"><span class="cat">Data Engineering &amp; APIs:</span> Python async data pipelines (aiohttp, threading, batched downloads), third-party API integration (Polygon.io, yfinance), multi-signal scoring engines, frequency/co-occurrence analysis, CSV data export and visualization</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Independent Mobile &amp; Cloud App Developer / Founder</span>
+        <span class="job-meta">Remote · 2024 – Present</span>
+      </div>
+      <p class="lede">Design, build, and publish cross-platform mobile applications end to end, including cloud backends and multi-store distribution.</p>
+      <ul>
+        <li>Built and <strong>published SafePulse / PulseGuard / CheckInOnMe</strong> end to end (Kotlin, Jetpack Compose, Room, MVVM) — from signed AAB builds and a closed-testing cohort through Google Play production release and store-listing setup; features include scheduled wellness check-ins, quick-alert SMS with location, trusted-contact circles, and offline alert queueing. iOS/SwiftUI port in active development.</li>
+        <li>Published and maintained apps across <strong>multiple app stores</strong> (Google Play, Huawei AppGallery, Amazon Appstore, Samsung Galaxy Store), navigating each platform's review, signing, and policy requirements — including DUNS/organization-account conversion and category-compliance issues.</li>
+        <li>Automated release uploads via the <strong>Google Play Developer API and Gradle Play Publisher</strong>, using <strong>Workload Identity Federation</strong> to work around service-account-key org policies.</li>
+        <li>Stood up a <strong>remote iOS build pipeline</strong> (MacinCloud + VS Code Remote-SSH) to compile iOS from a Windows/WSL environment; managed dev environments across Windows 11, WSL/Ubuntu, and remote macOS.</li>
+        <li>Engineered an <strong>SMS gateway on Cloudflare Workers integrated with Twilio</strong>, replacing device-dependent SMS with a serverless, carrier-grade delivery path; deployed branded marketing and privacy sites on <strong>Cloudflare Workers/Pages</strong> and <strong>GitHub Pages</strong> (checkinonme.app) with HTTPS custom domains.</li>
+        <li>Built <strong>BreakingTheLabel</strong>, an IEP practice-tracker Android app plus a companion static practice website with subscription gating.</li>
+        <li>Managed Android build flavors, release keystores, versioning, and CI-style release pipelines across multiple product lines.</li>
+      </ul>
+      <p class="subhead">Python / Data Engineering (personal projects)</p>
+      <ul>
+        <li>Built financial-market data screeners using the <strong>Polygon.io API and yfinance</strong>, with <strong>async aiohttp</strong>, batched downloads, and threading for high-throughput data collection.</li>
+        <li>Designed a <strong>multi-signal scoring engine</strong> (volume surge, momentum, moving-average crossover, 52-week proximity) with CSV export, plus frequency and co-occurrence analysis with grid visualizers.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Freelance Consultant / Caretaker</span>
+        <span class="job-meta">Jan 2017 – Mar 2021</span>
+      </div>
+      <p class="job-sub">Detroit Metropolitan Area</p>
+      <ul>
+        <li>Trained in Python programming, including web development with Django/Flask and data analysis with Pandas for automation and efficient data management.</li>
+        <li>Earned <strong>AWS Certified Solutions Architect – Associate</strong>, demonstrating proficiency deploying and managing AWS services including EC2, S3, RDS, and Lambda.</li>
+        <li>Completed Red Hat Enterprise Linux (RHEL) system administration training focused on monitoring, performance tuning, and network configuration.</li>
+        <li>Developed Red Hat security administration expertise: SELinux policy management, firewall configuration, and security compliance.</li>
+        <li>Gained proficiency in container management with Docker and Kubernetes, plus automated server configuration with Puppet.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Unix/Linux System Administrator</span>
+        <span class="job-meta">Oct 2011 – Jan 2017</span>
+      </div>
+      <p class="job-sub">SourceHOV — Troy, Michigan</p>
+      <ul>
+        <li>Developed and implemented system monitoring scripts for mail, web, and FTP servers, improving process-threshold management and system reliability.</li>
+        <li>Automated the user-account creation process, <strong>reducing time from two hours to twenty minutes</strong>.</li>
+        <li>Migrated <strong>600+ users to a new secure FTP server</strong> and transitioned multiple file systems to an EMC Isilon — both with <strong>zero data loss</strong>.</li>
+        <li>Streamlined issue-resolution procedures, <strong>reducing monthly incident tickets from ~300 to ~80</strong> through analysis and prioritization.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Unix System Administrator</span>
+        <span class="job-meta">May 2007 – Jan 2008</span>
+      </div>
+      <p class="job-sub">TEKsystems (Contract) — Warren, Michigan</p>
+      <ul>
+        <li>Built and maintained a test environment mirroring the production build profile for system components.</li>
+        <li>Managed software patches, security, telecom access, and Unix kernel configurations.</li>
+        <li>Established prioritization processes and governance for customer resource requests; facilitated communication across test leads, project managers, and supplier resources.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Unix System Administrator</span>
+        <span class="job-meta">Apr 2005 – Nov 2006</span>
+      </div>
+      <p class="job-sub">Incentra Solutions — DaimlerChrysler (SHAP) — Sterling Heights, Michigan</p>
+      <ul>
+        <li>Managed installation of Snap Appliance network-attached storage servers used to back up plant servers across all Chrysler facilities.</li>
+        <li>Installed, upgraded, and administered Linux-based GuardianOS, DNS, and NFS; troubleshot backend network, server, client, and software issues.</li>
+        <li>Led migration of UNIX and Windows clients from NetBackup to NetVault; managed backup software across Solaris 2.6–9.</li>
+        <li>Configured and tuned backup jobs, submitted change controls, and coordinated client installation schedules across IS teams.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Unix System Administrator</span>
+        <span class="job-meta">Jun 2004 – Jan 2005</span>
+      </div>
+      <p class="job-sub">LaSalle Bank (Contract) — Troy, Michigan</p>
+      <ul>
+        <li>Wrote Bash shell scripts for volume creation on EMC Celerra using rsync.</li>
+        <li>Performed post-installation procedures on Sun Solaris 8 servers; created mirrored volumes with Solstice DiskSuite.</li>
+        <li>Identified and labeled servers for JumpStart installation.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Systems Engineer</span>
+        <span class="job-meta">Jun 1997 – Jun 2003</span>
+      </div>
+      <p class="job-sub">Technical Solutions, LLC — Troy, Michigan</p>
+      <ul>
+        <li>Pre- and post-sales engineering: collaborated with sales teams on technical presentations, product demonstrations, and proofs of concept for prospective clients.</li>
+        <li>Assisted clients with product integration and setup within their IT environments.</li>
+        <li>Trained customers on best practices to ensure successful adoption; gathered post-implementation feedback to improve future versions.</li>
+        <li>Provided Level 2/3 support, resolving technical issues and ensuring customer satisfaction.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education &amp; Certifications</h2>
+    <div class="edu-block">
+      <div class="title">Associate of Applied Science, Information Technology — Macomb Community College</div>
+      <div class="detail">Coursework: C++ Programming, Database Design with SQL &amp; XML, Program Design &amp; Development, Web Programming, Principles of Networking, Project Management Principles</div>
+    </div>
+    <div class="edu-block">
+      <div class="title">AWS Certified Solutions Architect – Associate (2018) — Linux Academy</div>
+      <div class="title">AWS Certified SysOps Administrator – Associate (2018) — Linux Academy</div>
+      <div class="detail">Additional study: AWS Cloud Practitioner, IAM, Security, Backup Strategies, Amazon Machine Learning, CompTIA Cloud, Azure, Docker, Kubernetes, Jenkins, Ansible, Puppet, Chef, OpenStack, Serverless, PostgreSQL administration, Python 2/3</div>
+    </div>
+    <div class="edu-block">
+      <div class="title">Oracle Database 12c — Database Administrator Certified Professional (Nov 2019 – Feb 2020, GPA 4.0) — Global Institute of Information Technology</div>
+      <div class="detail">Data modeling/warehousing, database administration, backup &amp; recovery, performance monitoring, network configuration</div>
+    </div>
+    <div class="edu-block">
+      <div class="title">Cisco Certified Entry Networking Technician (CCENT) — Cisco Networking Academy (Cisco ID CSCO12924359)</div>
+    </div>
+    <div class="edu-block">
+      <div class="title">Unix/C Certificate Program — Marygrove College</div>
+      <div class="detail">Unix system &amp; network administration, shell scripting, introductory through advanced C programming, software development &amp; tools</div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Selected Projects</h2>
+    <ul>
+      <li><strong>AWS</strong> — cloud architecture study projects · <a href="https://github.com/slufoot80/AWS" target="_blank" rel="noopener">github.com/slufoot80/AWS</a></li>
+      <li><strong>Python Programming</strong> — automation &amp; data analysis · <a href="https://github.com/slufoot80/Python_Programming" target="_blank" rel="noopener">github.com/slufoot80/Python_Programming</a></li>
+    </ul>
+  </section>
+
+  <footer>Frank Nowicki · 586-872-0488 · frank.nowicki@gmail.com</footer>
+
+</main>
+</body>
+</html>
