@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>SafePulse — Apple App Review Demo Video Checklist</title>
+    <meta name="description" content="Step-by-step checklist for recording the App Store Review demonstration video that proves SafePulse's locked-phone dead-man's-switch escalation works end to end.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --red: #e63946;
+            --dark: #1a1a2e;
+            --muted: #5b5b6e;
+            --line: #e6e6ee;
+            --bg: #f7f7fb;
+            --card: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            color: var(--dark);
+            line-height: 1.65;
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap { max-width: 820px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #2a2a45 100%);
+            color: #fff;
+            border-radius: 18px;
+            padding: 2.25rem 1.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(26,26,46,0.18);
+        }
+        header .badge {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+        header h1 { font-size: 1.8rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.6rem; }
+        header p { color: #d8d8e6; font-size: 1.02rem; }
+
+        .callout {
+            background: #fff4f5;
+            border: 1px solid #f6c9ce;
+            border-left: 4px solid var(--red);
+            border-radius: 12px;
+            padding: 1.1rem 1.25rem;
+            margin: 1.5rem 0;
+            color: #7a2831;
+        }
+        .callout strong { color: var(--red); }
+
+        section {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 1.6rem 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 3px 14px rgba(26,26,46,0.04);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        h2 .n {
+            flex: 0 0 auto;
+            width: 30px; height: 30px;
+            background: var(--red);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        ol.steps { counter-reset: step; list-style: none; }
+        ol.steps > li {
+            position: relative;
+            padding: 0.55rem 0 0.55rem 2.5rem;
+            border-bottom: 1px dashed var(--line);
+            counter-increment: step;
+        }
+        ol.steps > li:last-child { border-bottom: none; }
+        ol.steps > li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0; top: 0.55rem;
+            width: 26px; height: 26px;
+            background: var(--dark);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        ul.checks { list-style: none; }
+        ul.checks li {
+            position: relative;
+            padding: 0.4rem 0 0.4rem 1.9rem;
+        }
+        ul.checks li::before {
+            content: "✓";
+            position: absolute;
+            left: 0; top: 0.4rem;
+            color: var(--red);
+            font-weight: 800;
+        }
+
+        strong.k { color: var(--dark); }
+        .phone { background: #f0f0f6; border-radius: 6px; padding: 0.1rem 0.4rem; font-weight: 600; white-space: nowrap; }
+
+        .timeline { font-size: 0.95rem; }
+        .timeline code {
+            background: #f0f0f6;
+            border-radius: 5px;
+            padding: 0.1rem 0.45rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-right: 0.4rem;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 2rem;
+        }
+        footer a { color: var(--red); text-decoration: none; }
+
+        @media (max-width: 560px) {
+            header h1 { font-size: 1.45rem; }
+            section { padding: 1.3rem 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <span class="badge">Internal · App Store Connect</span>
+            <h1>Apple App Review Demo Video — What to Record</h1>
+            <p>A step-by-step checklist for the demonstration video that proves SafePulse's locked-phone dead-man's-switch escalation works, end to end, so the reviewer approves the build.</p>
+        </header>
+
+        <div class="callout">
+            <strong>The whole point:</strong> the reviewer <strong>cannot reproduce</strong> a time-based, server-driven, locked-phone escalation in their sandbox. The video has to prove the unbroken chain: <em>user stops responding → server detects it → emergency contact actually receives the alert with the Maps link.</em> Show <strong>both phones</strong> — the payoff happens off-device.
+        </div>
+
+        <section>
+            <h2><span class="n">1</span> Pre-recording setup</h2>
+            <ul class="checks">
+                <li><strong class="k">Two phones in frame:</strong> the SafePulse user phone and the emergency-contact phone that receives the SMS.</li>
+                <li><strong class="k">Shorten the timer</strong> to a demo-friendly window (1–2 min) so the reviewer isn't watching dead air. If the interval is hardcoded long, use a debug/TestFlight build — and <em>disclose it in the notes</em>.</li>
+                <li><strong class="k">Pre-configure the emergency contact</strong> beforehand — don't type a phone number on camera (privacy + speed).</li>
+                <li><strong class="k">Keep clocks visible:</strong> leave the status-bar clocks on screen (or narrate timestamps) so it reads as real-time, not spliced.</li>
+                <li><strong class="k">Plan narration or captions</strong> — reviewers skim; label every step on screen or in voiceover.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="n">2</span> The recording script (in order)</h2>
+            <ol class="steps">
+                <li><strong class="k">Open the app, show the sign-in / main screen</strong> — establish that this is SafePulse.</li>
+                <li><strong class="k">Show the emergency contact is configured</strong> (open the contact/settings screen briefly).</li>
+                <li><strong class="k">Start a check-in / arm the timer</strong> — show the countdown or "active" state clearly.</li>
+                <li><strong class="k">Lock the user's phone on camera</strong> (press the side button, show the lock screen). Don't cut away — continuity matters.</li>
+                <li><strong class="k">Let the window elapse without checking in</strong> — this is the dead-man's-switch trigger. Narrate: "The user does not respond within the check-in window."</li>
+                <li><strong class="k">Show the escalation firing on the locked phone</strong> — the Critical Alert / notification appearing on the lock screen.</li>
+                <li><strong class="k">Pan to the emergency-contact phone</strong> and show the SMS arriving from <span class="phone">+1&nbsp;888&nbsp;423&nbsp;5823</span>, including the <strong class="k">Maps link</strong>. Tap the link to show it opens the user's location.</li>
+                <li><strong class="k">Close the loop</strong> — state plainly: "The contact was notified with a location link even though the user's phone was locked and untouched."</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2><span class="n">3</span> How to actually record it</h2>
+            <ul class="checks">
+                <li><strong class="k">Do NOT rely solely on iOS screen recording.</strong> Control Center recording can't capture lock-screen alerts well and stops in some states. Film the physical phones with a <strong>second camera</strong> so the lock screen, the incoming Critical Alert, and the contact's SMS are all visibly real.</li>
+                <li><strong class="k">Split-screen / two-devices-in-one-frame</strong> is ideal — it removes any doubt about splicing.</li>
+                <li><strong class="k">Keep it short and unedited-looking</strong> (~1–3 min). One continuous take is the most convincing.</li>
+                <li><strong class="k">1080p, landscape, no music</strong>, clear voiceover or captions.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="n">4</span> How to submit it to Apple</h2>
+            <ul class="checks">
+                <li>In <strong class="k">App Store Connect → your version → App Review Information → Notes</strong>, either <strong>attach the video file</strong> or paste an <strong>unlisted URL</strong> (unlisted YouTube or a direct link).</li>
+                <li>In the notes text, add a short paragraph: what the feature is, that it's server-side and can't be reproduced on demand, and that the demo build uses a shortened timer.</li>
+                <li>Include a <strong class="k">timestamped index</strong> so the reviewer jumps straight to the payoff:</li>
+            </ul>
+            <div class="timeline" style="margin-top:0.8rem;">
+                <div><code>0:15</code> timer armed</div>
+                <div><code>0:45</code> phone locked</div>
+                <div><code>1:30</code> contact receives alert + Maps link</div>
+            </div>
+            <ul class="checks" style="margin-top:0.8rem;">
+                <li>If Critical Alerts are shown but the entitlement isn't granted yet, <strong class="k">say so</strong> so the reviewer isn't confused by an unapproved entitlement.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="n">5</span> Common rejection triggers to avoid</h2>
+            <ul class="checks">
+                <li><strong class="k">Edited/spliced look</strong> → use one continuous take across both phones.</li>
+                <li><strong class="k">Can't see the payoff</strong> → the contact's SMS + Maps link must be clearly legible on camera.</li>
+                <li><strong class="k">Dead air</strong> → shorten the timer for the demo.</li>
+                <li><strong class="k">Unexplained test build</strong> → disclose the shortened interval in the notes.</li>
+            </ul>
+        </section>
+
+        <footer>
+            SafePulse · internal reference for App Store submission — <a href="index.html">safepulse home</a>
+        </footer>
+    </div>
+</body>
+</html>
