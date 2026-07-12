@@ -160,20 +160,20 @@
         <header>
             <span class="badge">Internal · App Store Connect</span>
             <h1>Apple App Review Demo Video — What to Record</h1>
-            <p>A step-by-step checklist for the demonstration video that proves SafePulse's locked-phone dead-man's-switch escalation works, end to end, so the reviewer approves the build.</p>
+            <p>A step-by-step checklist for the demonstration video that proves SafePulse's automatic dead-man's-switch escalation works, end to end, so the reviewer approves the build.</p>
         </header>
 
         <div class="callout">
-            <strong>The whole point:</strong> the reviewer <strong>cannot reproduce</strong> a time-based, server-driven, locked-phone escalation in their sandbox. The video has to prove the unbroken chain: <em>user stops responding → server detects it → emergency contact actually receives the alert with the Maps link.</em> Show <strong>both phones</strong> — the payoff happens off-device.
+            <strong>The whole point:</strong> the reviewer <strong>cannot reproduce</strong> a time-based, server-driven escalation in their sandbox. The video has to prove the unbroken chain: <em>the check-in timer runs out → the app sends automatically → the emergency contact actually receives the alert with the Maps link.</em> Show <strong>both phones in one frame</strong> — the payoff happens on the second phone.
         </div>
 
         <section>
             <h2><span class="n">1</span> Pre-recording setup</h2>
             <ul class="checks">
-                <li><strong class="k">Two phones in frame:</strong> the SafePulse user phone and the emergency-contact phone that receives the SMS.</li>
-                <li><strong class="k">Set the check-in interval to 1 minute</strong> for the demo — long enough that the trigger clearly isn't faked or instant, short enough to avoid dead air. If the interval is hardcoded longer, use a debug/TestFlight build — and <em>disclose the 1-minute demo interval in the notes</em>.</li>
+                <li><strong class="k">Both phones unlocked, side by side in ONE frame</strong> — the SafePulse user phone and the emergency-contact phone. Unlocked means no fumbling to pick up or unlock during the shot. Open the <strong>Messages app on the second phone</strong> so the incoming SMS is visible the instant it lands.</li>
+                <li><strong class="k">Use the 30-minute check-in interval</strong> — it's a real production setting, so the reviewer has nothing odd to question. To avoid a 30-minute recording: <strong>press pause on the recording during the idle wait</strong> and resume for the final minute (see the recording script below).</li>
                 <li><strong class="k">Pre-configure the emergency contact</strong> beforehand — don't type a phone number on camera (privacy + speed).</li>
-                <li><strong class="k">Keep clocks visible:</strong> leave the status-bar clocks on screen (or narrate timestamps) so it reads as real-time, not spliced.</li>
+                <li><strong class="k">Keep clocks visible:</strong> leave both phones' status-bar clocks and the app's countdown timer on screen so the elapsed time reads as real.</li>
                 <li><strong class="k">Plan narration or captions</strong> — reviewers skim; label every step on screen or in voiceover.</li>
             </ul>
         </section>
@@ -181,24 +181,23 @@
         <section>
             <h2><span class="n">2</span> The recording script (in order)</h2>
             <ol class="steps">
-                <li><strong class="k">Open the app, show the sign-in / main screen</strong> — establish that this is SafePulse.</li>
-                <li><strong class="k">Show the emergency contact is configured</strong> (open the contact/settings screen briefly).</li>
-                <li><strong class="k">Start a check-in / arm the timer</strong> — show the countdown or "active" state clearly.</li>
-                <li><strong class="k">Lock the user's phone on camera</strong> (press the side button, show the lock screen). Don't cut away — continuity matters.</li>
-                <li><strong class="k">Let the window elapse without checking in</strong> — this is the dead-man's-switch trigger. Narrate: "The user does not respond within the check-in window."</li>
-                <li><strong class="k">Show the escalation firing on the locked phone</strong> — the Critical Alert / notification appearing on the lock screen.</li>
-                <li><strong class="k">Pan to the emergency-contact phone</strong> and show the SMS arriving from <span class="phone">+1&nbsp;888&nbsp;423&nbsp;5823</span>, including the <strong class="k">Maps link</strong>. Tap the link to show it opens the user's location.</li>
-                <li><strong class="k">Close the loop</strong> — state plainly: "The contact was notified with a location link even though the user's phone was locked and untouched."</li>
+                <li><strong class="k">Open the app, show the main screen</strong> — establish that this is SafePulse, with the emergency contact already configured.</li>
+                <li><strong class="k">Start recording, then arm the 30-minute check-in.</strong> Hold on the app for a few seconds so the timer clearly reads <strong>30:00</strong> at the start.</li>
+                <li><strong class="k">Press pause on the recording</strong> and let the timer run down in real time. Both phones stay unlocked and in frame — nothing to touch.</li>
+                <li><strong class="k">When about 1 minute is left, resume recording.</strong> Capture the on-screen <strong>countdown ticking down to 0:00</strong> — this is the proof it fires automatically in real time.</li>
+                <li><strong class="k">Show the SMS arriving on the second phone</strong> the instant the timer hits zero — from <span class="phone">+1&nbsp;888&nbsp;423&nbsp;5823</span>, including the <strong class="k">Maps link</strong>. Tap the link to show it opens the user's location.</li>
+                <li><strong class="k">Keep rolling a few seconds after it arrives</strong>, then stop. Result is a ~2-minute raw clip: setup at 30:00 → final-minute countdown → automatic SMS + location.</li>
+                <li><strong class="k">Close the loop</strong> — the contact was notified automatically, with a location link, with no action from the user.</li>
             </ol>
         </section>
 
         <section>
             <h2><span class="n">3</span> How to actually record it</h2>
             <ul class="checks">
-                <li><strong class="k">Do NOT rely solely on iOS screen recording.</strong> Control Center recording can't capture lock-screen alerts well and stops in some states. Film the physical phones with a <strong>second camera</strong> so the lock screen, the incoming Critical Alert, and the contact's SMS are all visibly real.</li>
-                <li><strong class="k">Split-screen / two-devices-in-one-frame</strong> is ideal — it removes any doubt about splicing.</li>
-                <li><strong class="k">Keep it short and unedited-looking</strong> (~1–3 min). One continuous take is the most convincing.</li>
-                <li><strong class="k">1080p, landscape, no music</strong>, clear voiceover or captions.</li>
+                <li><strong class="k">Film both unlocked phones with an external camera in ONE frame.</strong> A screen recording only captures one phone — it can't show the SMS landing on the second phone, which is the payoff. One camera on both phones solves this and removes any doubt about splicing.</li>
+                <li><strong class="k">Pause caveat:</strong> iOS's built-in screen recording <strong>can't pause</strong> — it only stops. An external camera <em>can</em> pause/resume, which is exactly why we use one. (If you must screen-record instead, capture two clips — setup + final minute — and send both.)</li>
+                <li><strong class="k">Keep the countdown timer and both status-bar clocks clearly readable</strong> the whole time — that's what proves the elapsed time is real.</li>
+                <li><strong class="k">1080p, landscape, no music, no effects</strong> — send the raw clip.</li>
             </ul>
         </section>
 
@@ -206,13 +205,14 @@
             <h2><span class="n">4</span> How to submit it to Apple</h2>
             <ul class="checks">
                 <li>In <strong class="k">App Store Connect → your version → App Review Information → Notes</strong>, either <strong>attach the video file</strong> or paste an <strong>unlisted URL</strong> (unlisted YouTube or a direct link).</li>
-                <li>In the notes text, add a short paragraph: what the feature is, that it's server-side and can't be reproduced on demand, and that the demo build uses a <strong class="k">1-minute check-in interval</strong> (production intervals are much longer).</li>
+                <li>In the notes text, add a short paragraph: what the feature is, that it's server-side and can't be reproduced on demand, and that the <strong class="k">recording was paused during the idle wait</strong> of the 30-minute interval — so the timer jumps from 30:00 to ~1:00, and the final minute is a continuous real-time capture of the automatic send.</li>
                 <li>Include a <strong class="k">timestamped index</strong> so the reviewer jumps straight to the payoff:</li>
             </ul>
             <div class="timeline" style="margin-top:0.8rem;">
-                <div><code>0:15</code> timer armed</div>
-                <div><code>0:45</code> phone locked</div>
-                <div><code>1:30</code> contact receives alert + Maps link</div>
+                <div><code>0:00</code> 30-minute check-in armed (timer shows 30:00)</div>
+                <div><code>·</code> recording paused during the idle wait</div>
+                <div><code>0:20</code> recording resumes — ~1:00 left on the countdown</div>
+                <div><code>1:20</code> timer hits 0:00 → SMS + Maps link lands on the second phone</div>
             </div>
             <ul class="checks" style="margin-top:0.8rem;">
                 <li>If Critical Alerts are shown but the entitlement isn't granted yet, <strong class="k">say so</strong> so the reviewer isn't confused by an unapproved entitlement.</li>
@@ -222,10 +222,10 @@
         <section>
             <h2><span class="n">5</span> Common rejection triggers to avoid</h2>
             <ul class="checks">
-                <li><strong class="k">Edited/spliced look</strong> → use one continuous take across both phones.</li>
-                <li><strong class="k">Can't see the payoff</strong> → the contact's SMS + Maps link must be clearly legible on camera.</li>
-                <li><strong class="k">Dead air</strong> → shorten the timer for the demo.</li>
-                <li><strong class="k">Unexplained test build</strong> → disclose the shortened interval in the notes.</li>
+                <li><strong class="k">Edited/spliced look</strong> → keep both phones in one continuous frame for the final minute; only the idle wait is paused.</li>
+                <li><strong class="k">Can't see the payoff</strong> → the contact's SMS + Maps link must be clearly legible on the second phone.</li>
+                <li><strong class="k">Dead air</strong> → pause the recording during the 30-minute wait; capture only the setup and the final minute.</li>
+                <li><strong class="k">Unexplained time jump</strong> → disclose in the notes that the recording was paused during the idle wait.</li>
             </ul>
         </section>
 
