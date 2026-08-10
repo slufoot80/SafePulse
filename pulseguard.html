@@ -1,239 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>PulseGuard - Personal Safety Check-In App</title>
-    <meta name="description" content="PulseGuard is a personal safety check-in app. Set a timer, and if you don't check in, PulseGuard alerts your trusted contacts. Available on the Apple App Store and Amazon Appstore.">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #1a1a2e;
-            line-height: 1.6;
-            background: #fff;
-        }
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            z-index: 100;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #2e7d32;
-            text-decoration: none;
-        }
-        .logo span { color: #1a1a2e; }
-        nav a.parent-link {
-            font-size: 0.95rem;
-            color: #666;
-            text-decoration: none;
-        }
-        nav a.parent-link:hover { color: #2e7d32; }
-
-        .hero {
-            text-align: center;
-            padding: 5rem 2rem 4rem;
-            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 50%, #81c784 100%);
-            color: #fff;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-        .hero .tagline {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a2e;
-        }
-        h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #2e7d32; }
-        p { margin-bottom: 1rem; color: #444; }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .feature {
-            padding: 1.5rem;
-            background: #f4f8f4;
-            border-radius: 12px;
-            border-left: 4px solid #4caf50;
-        }
-
-        .download {
-            background: #f8faf8;
-            text-align: center;
-        }
-        .stores {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-        .store-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.5rem;
-            background: #1a1a2e;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-        .store-badge:hover { transform: translateY(-2px); }
-        .store-icon { font-size: 1.25rem; }
-
-        .support {
-            background: #fff;
-            border-top: 1px solid #eee;
-        }
-        .support-card {
-            background: #f4f8f4;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-        }
-        .support-card a {
-            color: #2e7d32;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .support-card a:hover { text-decoration: underline; }
-
-        .disclaimer {
-            background: #fff8e1;
-            border-left: 4px solid #f9a825;
-            padding: 1rem 1.25rem;
-            margin-top: 2rem;
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        footer {
-            background: #1a1a2e;
-            color: #aaa;
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        footer a { color: #81c784; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero .tagline { font-size: 1.05rem; }
-            section { padding: 3rem 1.25rem; }
-            nav { padding: 0.75rem 1rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moved &mdash; PulseGuard</title>
+<link rel="canonical" href="https://checkinonme.app/">
+<meta http-equiv="refresh" content="0; url=https://checkinonme.app/">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+         background: #ffffff; color: #1a1a2e; line-height: 1.6;
+         display: flex; min-height: 100vh; align-items: center; justify-content: center;
+         margin: 0; padding: 2rem; text-align: center; }
+  a { color: #2e7d32; }
+</style>
 </head>
 <body>
-
-<nav>
-    <a href="pulseguard.html" class="logo">Pulse<span>Guard</span></a>
-    <a href="index.html" class="parent-link">SafePulse (Android) &rarr;</a>
-</nav>
-
-<section class="hero">
-    <h1>Your Safety, Always On</h1>
-    <p class="tagline">PulseGuard is a personal safety check-in app. Set a timer, and if you don't check in, PulseGuard alerts your trusted contacts with your location.</p>
-</section>
-
-<section>
-    <h2>How PulseGuard Works</h2>
-    <p>PulseGuard is built for the moments when no one knows where you are. Set a check-in timer before a run, a late drive, a solo hike, or a long day. PulseGuard warns you before the timer runs out &mdash; it vibrates and opens the app so you can tap "I'm OK." If you still don't respond, it sends a pre-written SMS (and an optional call) to the emergency contacts you chose &mdash; with your last known location &mdash; repeating about every 30 minutes until you check in.</p>
-
-    <div class="features">
-        <div class="feature">
-            <h3>Automatic Check-Ins</h3>
-            <p>Choose your interval. PulseGuard runs quietly in the background until you need it.</p>
-        </div>
-        <div class="feature">
-            <h3>SOS Button</h3>
-            <p>One tap immediately alerts every emergency contact you've added.</p>
-        </div>
-        <div class="feature">
-            <h3>100% Private</h3>
-            <p>All your data stays on your device. No accounts, no servers, no analytics.</p>
-        </div>
-        <div class="feature">
-            <h3>Low-Battery Warning</h3>
-            <p>If your phone gets dangerously low, PulseGuard warns your circle so they know you may go offline.</p>
-        </div>
-        <div class="feature">
-            <h3>Auto-Call on SOS</h3>
-            <p>PulseGuard can automatically dial your first emergency contact when SOS is triggered.</p>
-        </div>
-        <div class="feature">
-            <h3>English, 中文, or System Default</h3>
-            <p>Full Simplified Chinese localization. Pick a language in-app, or leave it on System default to follow your iPhone's language setting.</p>
-        </div>
-    </div>
-</section>
-
-<section class="download">
-    <h2>Get PulseGuard</h2>
-    <p>PulseGuard is available on the Apple App Store (iPhone) and Amazon Appstore (Fire Tablet). The same app is published as <strong>SafePulse</strong> on Google Play, Huawei AppGallery, and (soon) Samsung Galaxy Store.</p>
-    <div class="stores">
-        <a class="store-badge" href="https://apps.apple.com/app/id6760568365" target="_blank" rel="noopener">
-            <span class="store-icon">&#63743;</span>
-            <span>App Store</span>
-        </a>
-        <a class="store-badge" href="https://www.amazon.com/dp/B0DXXXXXX" target="_blank" rel="noopener">
-            <span class="store-icon">&#128722;</span>
-            <span>Amazon Appstore</span>
-        </a>
-    </div>
-</section>
-
-<section class="support" id="support">
-    <h2>Support &amp; Contact</h2>
-    <div class="support-card">
-        <p style="font-size: 1.1rem; margin-bottom: 1rem;"><strong>Need help with PulseGuard?</strong></p>
-        <p>Email <a href="mailto:frank.nowicki@gmail.com">frank.nowicki@gmail.com</a> and I'll get back to you within a business day.</p>
-        <p style="margin-top: 1.5rem; font-size: 0.95rem;">Setup walkthroughs and troubleshooting tips: <a href="troubleshooting.html">Setup &amp; Help Guide</a></p>
-        <p style="font-size: 0.95rem;">Privacy practices: <a href="pulseguard-privacy.html">Privacy Policy</a></p>
-        <p style="font-size: 0.95rem;">Legal terms: <a href="pulseguard-terms.html">Terms of Service</a></p>
-    </div>
-
-    <div class="disclaimer">
-        <strong>Important:</strong> PulseGuard is a personal safety check-in app and is not a medical device, emergency service, or substitute for professional help. If you are in immediate danger, please contact your local emergency number (911 in the US, 112 in Europe, etc.).
-    </div>
-</section>
-
-<footer>
-    <p>&copy; 2026 Frank Nowicki. All rights reserved.</p>
-    <p style="margin-top: 0.5rem;">PulseGuard&trade; and SafePulse&trade; are brands of Frank Nowicki. &middot; <a href="pulseguard-privacy.html">Privacy</a> &middot; <a href="pulseguard-terms.html">Terms</a> &middot; <a href="index.html">SafePulse (Android site)</a></p>
-</footer>
-
+<main>
+  <h1>This page has moved</h1>
+  <p>PulseGuard now lives at <a href="https://checkinonme.app/">https://checkinonme.app/</a>.</p>
+  <p>If you are not redirected automatically, follow the link above.</p>
+</main>
+<script>window.location.replace("https://checkinonme.app/");</script>
 </body>
 </html>
