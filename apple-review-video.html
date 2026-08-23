@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
     <title>SafePulse — Apple App Review Demo Video Checklist</title>
-    <meta name="description" content="Step-by-step checklist for recording the App Store Review demonstration video that proves SafePulse's locked-phone dead-man's-switch escalation works end to end.">
+    <meta name="description" content="Shot-by-shot checklist for the App Store Review demonstration video that proves SafePulse obtains contact consent before any data leaves the device, and contains no in-app purchases.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -62,6 +62,17 @@
         }
         .callout strong { color: var(--red); }
 
+        .warn {
+            background: #fffbe6;
+            border: 1px solid #f0dfa0;
+            border-left: 4px solid #d4a017;
+            border-radius: 12px;
+            padding: 1.1rem 1.25rem;
+            margin: 1.5rem 0;
+            color: #6b5310;
+        }
+        .warn strong { color: #8a6a12; }
+
         section {
             background: var(--card);
             border: 1px solid var(--line);
@@ -92,36 +103,13 @@
             font-weight: 800;
         }
 
-        ol.steps { counter-reset: step; list-style: none; }
-        ol.steps > li {
-            position: relative;
-            padding: 0.55rem 0 0.55rem 2.5rem;
-            border-bottom: 1px dashed var(--line);
-            counter-increment: step;
-        }
-        ol.steps > li:last-child { border-bottom: none; }
-        ol.steps > li::before {
-            content: counter(step);
-            position: absolute;
-            left: 0; top: 0.55rem;
-            width: 26px; height: 26px;
-            background: var(--dark);
-            color: #fff;
-            border-radius: 50%;
-            font-size: 0.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         ul.checks { list-style: none; }
         ul.checks li {
             position: relative;
             padding: 0.4rem 0 0.4rem 1.9rem;
         }
         ul.checks li::before {
-            content: "✓";
+            content: "\2713";
             position: absolute;
             left: 0; top: 0.4rem;
             color: var(--red);
@@ -129,13 +117,52 @@
         }
 
         strong.k { color: var(--dark); }
-        .phone { background: #f0f0f6; border-radius: 6px; padding: 0.1rem 0.4rem; font-weight: 600; white-space: nowrap; }
+        code {
+            background: #f0f0f6;
+            border-radius: 5px;
+            padding: 0.1rem 0.4rem;
+            font-family: ui-monospace, Menlo, Consolas, monospace;
+            font-size: 0.85em;
+        }
+
+        .clipwrap { overflow-x: auto; }
+        table.clips { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+        table.clips th, table.clips td {
+            text-align: left;
+            padding: 0.55rem 0.6rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+        table.clips th {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+        }
+        table.clips td.f {
+            white-space: nowrap;
+            font-weight: 700;
+            color: var(--red);
+            font-family: ui-monospace, Menlo, Consolas, monospace;
+            font-size: 0.82rem;
+        }
+
+        .paste {
+            background: #f7f7fb;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 1rem 1.1rem;
+            font-family: ui-monospace, Menlo, Consolas, monospace;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .stamp { font-size: 0.85rem; color: var(--muted); margin-top: 0.9rem; }
 
         .timeline { font-size: 0.95rem; }
         .timeline code {
-            background: #f0f0f6;
-            border-radius: 5px;
-            padding: 0.1rem 0.45rem;
             font-weight: 700;
             color: var(--red);
             margin-right: 0.4rem;
@@ -146,6 +173,7 @@
             color: var(--muted);
             font-size: 0.85rem;
             margin-top: 2rem;
+            line-height: 1.9;
         }
         footer a { color: var(--red); text-decoration: none; }
 
@@ -158,79 +186,121 @@
 <body>
     <div class="wrap">
         <header>
-            <span class="badge">Internal · App Store Connect</span>
-            <h1>Apple App Review Demo Video — What to Record</h1>
-            <p>A step-by-step checklist for the demonstration video that proves SafePulse's automatic dead-man's-switch escalation works, end to end, so the reviewer approves the build.</p>
+            <span class="badge">Internal &middot; App Store Connect</span>
+            <h1>Apple App Review Demo Video &mdash; What to Record</h1>
+            <p>A shot-by-shot checklist for the demonstration video attached to the App Store submission. Its job is to clear the two rejection notes on submission <strong>71af9035</strong>, and nothing else.</p>
+            <p style="color:#b9b9cc; font-size:0.85rem; margin-top:0.9rem;">Rewritten 23 August 2026. This replaces the earlier two-phone, external-camera version &mdash; that plan is dead. One iPhone, screen recording only.</p>
         </header>
 
         <div class="callout">
-            <strong>The whole point:</strong> the reviewer <strong>cannot reproduce</strong> a time-based, server-driven escalation in their sandbox. The video has to prove the unbroken chain: <em>the check-in timer runs out → the app sends automatically → the emergency contact actually receives the alert with the Maps link.</em> Show <strong>both phones in one frame</strong> — the payoff happens on the second phone.
+            <strong>What this video must prove.</strong> Submission <strong>71af9035</strong> was rejected on 26 March 2026 on four notes: <strong>Guideline 2.1(b)</strong> &mdash; In-App Purchases not found (&times;2), and <strong>Guideline 5.1.2 / 5.1.2(iv)</strong> &mdash; contacts uploaded to a server without consent (&times;2). So the reviewer needs to see the <em>consent handshake</em> and the <em>absence of any purchase screen</em>. Alert delivery is the closing shot, not the point. Location is a footnote.
+        </div>
+
+        <div class="warn">
+            <strong>One phone is correct &mdash; and it is not a workaround.</strong> Add <em>your own number</em> as the emergency contact. The invite arrives on the same iPhone, you confirm on that phone, and the alert lands there too. This is the exact path the App Review Notes tell the reviewer to follow: &ldquo;a US mobile number you control &mdash; your own is ideal.&rdquo; No second phone, no camera, no tripod.
         </div>
 
         <section>
-            <h2><span class="n">1</span> Pre-recording setup</h2>
+            <h2><span class="n">1</span> The three doubts the reviewer has</h2>
             <ul class="checks">
-                <li><strong class="k">Both phones unlocked, side by side in ONE frame</strong> — the SafePulse user phone and the emergency-contact phone. Unlocked means no fumbling to pick up or unlock during the shot. Open the <strong>Messages app on the second phone</strong> so the incoming SMS is visible the instant it lands.</li>
-                <li><strong class="k">Use the 30-minute check-in interval</strong> — it's a real production setting, so the reviewer has nothing odd to question. To avoid a 30-minute recording: <strong>press pause on the recording during the idle wait</strong> and resume for the final minute (see the recording script below).</li>
-                <li><strong class="k">Pre-configure the emergency contact</strong> beforehand — don't type a phone number on camera (privacy + speed).</li>
-                <li><strong class="k">Keep clocks visible:</strong> leave both phones' status-bar clocks and the app's countdown timer on screen so the elapsed time reads as real.</li>
-                <li><strong class="k">Plan narration or captions</strong> — reviewers skim; label every step on screen or in voiceover.</li>
+                <li><strong class="k">&ldquo;Are contacts uploaded before anyone agrees?&rdquo;</strong> &rarr; the written disclosure on the Add Contact screen, then <em>Waiting for their consent</em>, then the invite going out from the user&rsquo;s own Messages composer.</li>
+                <li><strong class="k">&ldquo;Did the recipient actually agree?&rdquo;</strong> &rarr; tapping the one-time link, confirming, and the contact flipping to <em>Approved</em>.</li>
+                <li><strong class="k">&ldquo;Is there a hidden paywall?&rdquo;</strong> &rarr; a slow scroll through Settings and Home with no purchase, upgrade, or subscribe control anywhere.</li>
             </ul>
         </section>
 
         <section>
-            <h2><span class="n">2</span> The recording script (in order)</h2>
-            <ol class="steps">
-                <li><strong class="k">Open the app, show the main screen</strong> — establish that this is SafePulse, with the emergency contact already configured.</li>
-                <li><strong class="k">Start recording, then arm the 30-minute check-in.</strong> Hold on the app for a few seconds so the timer clearly reads <strong>30:00</strong> at the start.</li>
-                <li><strong class="k">Press pause on the recording</strong> and let the timer run down in real time. Both phones stay unlocked and in frame — nothing to touch.</li>
-                <li><strong class="k">When about 1 minute is left, resume recording.</strong> Capture the on-screen <strong>countdown ticking down to 0:00</strong> — this is the proof it fires automatically in real time.</li>
-                <li><strong class="k">Show the SMS arriving on the second phone</strong> the instant the timer hits zero — from <span class="phone">+1&nbsp;888&nbsp;423&nbsp;5823</span>, including the <strong class="k">Maps link</strong>. Tap the link to show it opens the user's location.</li>
-                <li><strong class="k">Keep rolling a few seconds after it arrives</strong>, then stop. Result is a ~2-minute raw clip: setup at 30:00 → final-minute countdown → automatic SMS + location.</li>
-                <li><strong class="k">Close the loop</strong> — the contact was notified automatically, with a location link, with no action from the user.</li>
-            </ol>
-        </section>
-
-        <section>
-            <h2><span class="n">3</span> How to actually record it</h2>
+            <h2><span class="n">2</span> Before you press record</h2>
             <ul class="checks">
-                <li><strong class="k">Film both unlocked phones with an external camera in ONE frame.</strong> A screen recording only captures one phone — it can't show the SMS landing on the second phone, which is the payoff. One camera on both phones solves this and removes any doubt about splicing.</li>
-                <li><strong class="k">Pause caveat:</strong> iOS's built-in screen recording <strong>can't pause</strong> — it only stops. An external camera <em>can</em> pause/resume, which is exactly why we use one. (If you must screen-record instead, capture two clips — setup + final minute — and send both.)</li>
-                <li><strong class="k">Keep the countdown timer and both status-bar clocks clearly readable</strong> the whole time — that's what proves the elapsed time is real.</li>
-                <li><strong class="k">1080p, landscape, no music, no effects</strong> — send the raw clip.</li>
+                <li><strong class="k">Delete your own number from the contact list in the app first.</strong> If it is already Approved, <em>Waiting for their consent</em> never appears &mdash; and that frame is the entire 5.1.2 defence. This is the easiest way to waste a whole recording session.</li>
+                <li><strong class="k">Preflight the gateway.</strong> Send one real SOS and confirm the SMS <em>and</em> the email both arrive. A reviewer hitting a dead gateway reads it as a broken app.</li>
+                <li><strong class="k">Check the Twilio balance and the per-device spend cap.</strong> Number rental alone drains about $3.30 a month, and a 429 &ldquo;cap reached&rdquo; presents as an app that simply does not work.</li>
+                <li><strong class="k">Turn on a Focus mode</strong> so unrelated notification banners do not drop over the demo.</li>
+                <li><strong class="k">Record each scene as its own clip</strong>, named <code>01_</code> through <code>09_</code>. Numbered clips remove the entire category of &ldquo;the editor guessed the order&rdquo;.</li>
             </ul>
         </section>
 
         <section>
-            <h2><span class="n">4</span> How to submit it to Apple</h2>
+            <h2><span class="n">3</span> The nine clips</h2>
+            <div class="clipwrap">
+            <table class="clips">
+                <tr><th>Clip</th><th>What to record</th></tr>
+                <tr><td class="f">01_setup</td><td>Launch, onboarding: enter a name and your callback number.</td></tr>
+                <tr><td class="f">02_no_purchase</td><td>Scroll Settings, then Home, <strong>slowly</strong>. No upgrade, subscribe, or unlock control anywhere. Hold long enough to read every row &mdash; this clip exists to prove a negative, so do not rush it.</td></tr>
+                <tr><td class="f">03_disclosure</td><td>Contacts &rarr; Add contact. <strong>Hold four full seconds</strong> on the text stating that the contact&rsquo;s name and number will be sent to the server. The most important frame in the video.</td></tr>
+                <tr><td class="f">04_pending</td><td>Enter a name and your own mobile number, then save. Shows <em>Waiting for their consent</em>.</td></tr>
+                <tr><td class="f">05_invite</td><td>Tap Send invite &rarr; the iOS Messages composer opens pre-filled &rarr; tap Send. Show clearly that the <strong>user</strong> sends it, from their own phone.</td></tr>
+                <tr><td class="f">06_consent</td><td>The invite text arrives &rarr; tap the link &rarr; confirm on the page that opens.</td></tr>
+                <tr><td class="f">07_approved</td><td>Back in the app, the contact now reads <em>Approved</em>.</td></tr>
+                <tr><td class="f">08_checkin</td><td>Home &rarr; CHECK IN at the 30-minute interval. The countdown starts.</td></tr>
+                <tr><td class="f">09_alert</td><td>Press SOS &rarr; the alert arrives &rarr; open it, read it fully &rarr; tap the location link &rarr; the map opens.</td></tr>
+            </table>
+            </div>
+            <p class="stamp"><strong>Why SOS rather than a real 30-minute expiry:</strong> SOS fires immediately and travels the same gateway path, so there is no pausing, no time jump, and nothing for the reviewer to question. The old pause-and-resume trick is no longer needed.</p>
+        </section>
+
+        <section>
+            <h2><span class="n">4</span> Caption lines &mdash; send these with the clips</h2>
+            <div class="paste">01 - Setup: user enters their name and a callback number. No account, no login.
+02 - No purchases anywhere in the app. It is paid upfront, all features unlocked.
+03 - Before a contact is saved, the app states that their name and number will be
+     sent to our server.
+04 - The contact is saved as "Waiting for their consent" and cannot be alerted yet.
+05 - The invite is sent by the user, from their own Messages app. Our number never
+     texts anyone first.
+06 - The contact opts in themselves by confirming the one-time link.
+07 - Only now is the contact approved and eligible to receive alerts.
+08 - The user checks in. The countdown to the next check-in begins.
+09 - Alert delivered to the approved contact, with the user's name, callback number
+     and location link.</div>
+            <p class="stamp">Send these as a numbered list matching the filenames, and state that the wording must be used verbatim. Editors rewriting captions into marketing voice is the most common way this job goes wrong.</p>
+        </section>
+
+        <section>
+            <h2><span class="n">5</span> What the editor does &mdash; and must not do</h2>
             <ul class="checks">
-                <li>In <strong class="k">App Store Connect → your version → App Review Information → Notes</strong>, either <strong>attach the video file</strong> or paste an <strong>unlisted URL</strong> (unlisted YouTube or a direct link).</li>
-                <li>In the notes text, add a short paragraph: what the feature is, that it's server-side and can't be reproduced on demand, and that the <strong class="k">recording was paused during the idle wait</strong> of the 30-minute interval — so the timer jumps from 30:00 to ~1:00, and the final minute is a continuous real-time capture of the automatic send.</li>
-                <li>Include a <strong class="k">timestamped index</strong> so the reviewer jumps straight to the payoff:</li>
+                <li><strong class="k">No seller can shoot this.</strong> It needs the real app, the real gateway, the real Twilio number and real contacts, and Apple requires the data to be genuine. The Fiverr role is <strong>editing only</strong>: trim, join in numbered order, burn in the captions, export.</li>
+                <li><strong class="k">Export vertical 1080&times;1920 MP4</strong>, about two minutes. The old landscape spec is superseded.</li>
+                <li><strong class="k">No intro card, no logo animation, no music, no stock footage, no transitions, no effects.</strong> Plain hard cuts. Boring is correct.</li>
+                <li><strong class="k">Never speed up, shorten, or re-time a clip</strong> to make the app look faster than it was. Apple is verifying real behaviour, and edited timing reads as staged.</li>
+                <li><strong class="k">Do not crop out the status bar or the clock.</strong></li>
+                <li>A slight zoom is allowed on <code>03_disclosure</code> and <code>06_consent</code> only, so the small text is readable.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="n">6</span> How to submit it to Apple</h2>
+            <ul class="checks">
+                <li>Upload <strong>Unlisted to YouTube</strong>, then paste the link into <strong class="k">App Store Connect &rarr; your version &rarr; App Review Information &rarr; Notes</strong>, or attach the file directly.</li>
+                <li>The Notes text itself comes from <strong class="k">APP_REVIEW_NOTES.md &sect;1</strong> in the iOS repo. That file is the single paste source &mdash; do not re-draft the notes here or anywhere else.</li>
+                <li>Include a short timestamped index so the reviewer can jump straight to the two clips that answer the rejection notes.</li>
             </ul>
             <div class="timeline" style="margin-top:0.8rem;">
-                <div><code>0:00</code> 30-minute check-in armed (timer shows 30:00)</div>
-                <div><code>·</code> recording paused during the idle wait</div>
-                <div><code>0:20</code> recording resumes — ~1:00 left on the countdown</div>
-                <div><code>1:20</code> timer hits 0:00 → SMS + Maps link lands on the second phone</div>
+                <div><code>0:12</code> Settings and Home &mdash; no purchase control anywhere (2.1(b))</div>
+                <div><code>0:30</code> Disclosure shown before the contact is saved (5.1.2)</div>
+                <div><code>0:55</code> Invite sent by the user, from their own Messages app</div>
+                <div><code>1:15</code> Contact confirms, then flips to Approved</div>
+                <div><code>1:40</code> Alert delivered, with callback number and location link</div>
             </div>
             <ul class="checks" style="margin-top:0.8rem;">
-                <li>If Critical Alerts are shown but the entitlement isn't granted yet, <strong class="k">say so</strong> so the reviewer isn't confused by an unapproved entitlement.</li>
+                <li>If Critical Alerts behaviour appears on screen while the entitlement is still ungranted, <strong class="k">say so in the notes</strong> so the reviewer is not confused by an unapproved entitlement.</li>
             </ul>
         </section>
 
         <section>
-            <h2><span class="n">5</span> Common rejection triggers to avoid</h2>
+            <h2><span class="n">7</span> Rejection triggers to avoid</h2>
             <ul class="checks">
-                <li><strong class="k">Edited/spliced look</strong> → keep both phones in one continuous frame for the final minute; only the idle wait is paused.</li>
-                <li><strong class="k">Can't see the payoff</strong> → the contact's SMS + Maps link must be clearly legible on the second phone.</li>
-                <li><strong class="k">Dead air</strong> → pause the recording during the 30-minute wait; capture only the setup and the final minute.</li>
-                <li><strong class="k">Unexplained time jump</strong> → disclose in the notes that the recording was paused during the idle wait.</li>
+                <li><strong class="k">Contact pre-configured off camera</strong> &rarr; the consent handshake becomes invisible and 5.1.2 goes unanswered. Add the contact on camera, every time. <em>The previous version of this page advised the opposite; it was wrong.</em></li>
+                <li><strong class="k">Rushing the Settings scroll</strong> &rarr; if the reviewer cannot read every row, the absence of a paywall is not proven.</li>
+                <li><strong class="k">Music, intro cards or effects</strong> &rarr; makes a compliance video look like an advert, and invites doubt about what else was staged.</li>
+                <li><strong class="k">Any re-timing</strong> &rarr; unexplained time jumps read as splicing.</li>
+                <li><strong class="k">A non-US recipient number</strong> &rarr; non-<code>+1</code> numbers route to WhatsApp, not SMS. Six re-shoots died watching the Messages app for something that was never going to arrive there.</li>
             </ul>
         </section>
 
         <footer>
-            SafePulse · internal reference for App Store submission — <a href="index.html">safepulse home</a>
+            SafePulse &middot; internal reference for App Store submission &middot; updated 23 August 2026<br>
+            Canonical text: <strong>APP_REVIEW_NOTES.md</strong> and <strong>APP_REVIEW_VIDEO_BRIEF_IOS.md</strong> in the iOS repo.
         </footer>
     </div>
 </body>
